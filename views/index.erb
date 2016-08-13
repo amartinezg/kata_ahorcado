@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <h1>Bienvenido al juego de ahorcado</h1>
+  <h1><%= session[:ahorcado].lineas %></h1>
+  <form method="post" action="/check">
+    <input type="text" name="letra"/>
+    <input type="submit" id="enviar">
+  </form>
+  <% if (session[:ahorcado].fallos.length != 0) %>
+    <div>
+      <p>Fallos:</p>
+      <% session[:ahorcado].fallos.each do |char| %>
+        <p><%= "- #{char}" %></p>
+      <% end %>
+    </div>
+  <% end %>
+</body>
+</html>
